@@ -16,13 +16,26 @@ import Dictionary from './components/Dictionary';
 function App() {
 
   return (
-    <div className='image d-flex flex-column justify-content-center align-items-center'>
-      <div>
-      <a href="https://x.com/home"><button type="button" className="btn btn-outline-secondary mx-3 my-2"><FontAwesomeIcon icon={faXTwitter} size="3x" /></button></a>
-      <a href="https://x.com/i/grok"><button type="button" className="btn btn-outline-secondary mx-3 my-2"><FontAwesomeIcon icon={faBrain} size="3x" /></button></a>
+    <div className="image">
+      {/* Top bar for buttons */}
+      <div className="d-flex justify-content-center">
+        <a href="https://x.com/home" target="_blank" rel="noopener noreferrer">
+          <button type="button" className="btn btn-outline-secondary mx-3 my-2">
+            <FontAwesomeIcon icon={faXTwitter} size="3x" />
+          </button>
+        </a>
+        <a href="https://x.com/i/grok" target="_blank" rel="noopener noreferrer">
+          <button type="button" className="btn btn-outline-secondary mx-3 my-2">
+            <FontAwesomeIcon icon={faBrain} size="3x" />
+          </button>
+        </a>
       </div>
-      <StockQuote />
-      <Dictionary />
+
+      {/* Centered content */}
+      <div className="d-flex flex-column justify-content-center align-items-center min-vh-100">
+        <StockQuote />
+        <Dictionary />
+      </div>
     </div>
   )
 }

@@ -58,7 +58,7 @@ const StockQuote = () => {
       {/* Display stock data */}
       {stockData && (
         <div>
-          <p className='text-light'>Current Price: ${stockData.c}</p>
+          <h5 className='text-warning'>Current Price: ${stockData.c}</h5>
           <p className='text-light'>Change: ${stockData.d} ({stockData.dp}%)</p>
           <p className='text-light'>High Price: ${stockData.h}</p>
           <p className='text-light'>Low Price: ${stockData.l}</p>
