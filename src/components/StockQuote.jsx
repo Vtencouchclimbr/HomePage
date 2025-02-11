@@ -44,6 +44,7 @@ const StockQuote = () => {
   return (
     <div className='stock-quote container text-center mb-3'>
       {/* Input for stock symbol */}
+      <h4 className='text-light'>{symbol} Stock Quote</h4>
       <div className='text-light'>
         <label className='mt-3'>
           Stock Symbol:
@@ -57,7 +58,6 @@ const StockQuote = () => {
       {/* Display stock data */}
       {stockData && (
         <div>
-          <h4 className='text-light'>{symbol} Stock Quote</h4>
           <p className='text-light'>Current Price: ${stockData.c}</p>
           <p className='text-light'>Change: ${stockData.d} ({stockData.dp}%)</p>
           <p className='text-light'>High Price: ${stockData.h}</p>

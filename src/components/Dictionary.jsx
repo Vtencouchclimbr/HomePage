@@ -48,10 +48,10 @@ function Api() {
   if (error) return <div>Error: {error.message}</div>;
   
   return (
-    <div className="container">
-      <h1 className='text-dark'>My Personal Dictionary</h1>
+    <div className="container text-center">
+      <h1 className='text-light'>My Personal Dictionary</h1>
       <input 
-      className='rounded gb-dark'
+      className='rounded bg-dark text-light text-center'
       type="text" 
       value={value} 
       onChange={handleChange} 
@@ -62,7 +62,7 @@ function Api() {
       }}
       placeholder="Enter word here" 
       />
-      <button className='rounded bg-dark' 
+      <button className='rounded text-light btn btn-outline-success' 
       onClick={handleSubmit}
       >Submit</button>
       {data && data.length > 0 ? (
@@ -85,7 +85,7 @@ function Api() {
           </div>
         </div>
       ) : (
-        <div>No data available for this word.</div>
+        <div className='text-light'>No data available for this word.</div>
       )}
     </div>
   );
