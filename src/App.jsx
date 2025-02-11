@@ -1,9 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faXTwitter
+  faXTwitter,
+  faGithub,
+  faAmazon,
+  faYoutube
 } from "@fortawesome/free-brands-svg-icons";
 import {
-  faBrain
+  faBrain,
+  faHandHoldingDollar
 } from "@fortawesome/free-solid-svg-icons";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -27,6 +31,21 @@ function App() {
         <a href="https://x.com/i/grok" target="_blank" rel="noopener noreferrer">
           <button type="button" className="btn btn-outline-secondary mx-3 my-2">
             <FontAwesomeIcon icon={faBrain} size="3x" />
+          </button>
+        </a>
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+          <button type="button" className="btn btn-outline-secondary mx-3 my-2">
+            <FontAwesomeIcon icon={faGithub} size="3x" />
+          </button>
+        </a>
+        <a href="https://robinhood.com/" target="_blank" rel="noopener noreferrer">
+          <button type="button" className="btn btn-outline-secondary mx-3 my-2">
+            <FontAwesomeIcon icon={faHandHoldingDollar} size="3x" />
+          </button>
+        </a>
+        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
+          <button type="button" className="btn btn-outline-secondary mx-3 my-2">
+            <FontAwesomeIcon icon={faYoutube} size="3x" />
           </button>
         </a>
       </div>
