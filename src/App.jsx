@@ -2,7 +2,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faXTwitter,
   faGithub,
-  faAmazon,
   faYoutube
 } from "@fortawesome/free-brands-svg-icons";
 import {
@@ -16,6 +15,7 @@ import './App.css'
 
 import StockQuote from './components/StockQuote';
 import Dictionary from './components/Dictionary';
+import TodoList from './components/TodoList';
 
 function App() {
 
@@ -51,9 +51,14 @@ function App() {
       </div>
 
       {/* Centered content */}
-      <div className="d-flex flex-column justify-content-center align-items-center min-vh-100">
+      <div className="d-flex justify-content-center align-items-center min-vh-100">
+        <div>
         <StockQuote />
         <Dictionary />
+        </div>
+        <div>
+        <TodoList />
+        </div>
       </div>
     </div>
   )
