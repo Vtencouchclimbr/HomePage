@@ -50,7 +50,7 @@ const TodoList = () => {
   };
 
   return (
-    <div className="todo-list">
+    <div className="todo-list text-light">
       <h2>To-Do List</h2>
       <div className="task-input">
         <input

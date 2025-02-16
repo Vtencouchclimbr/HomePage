@@ -21,54 +21,50 @@ import Dictionary from './components/Dictionary';
 import TodoList from './components/TodoList';
 
 function App() {
-
   return (
     <div className="image">
       {/* Top bar for buttons */}
-      <div className="d-flex justify-content-center">
-        <a href="https://x.com/home" target="_blank" rel="noopener noreferrer">
-          <button type="button" className="btn btn-outline-secondary mx-5 my-2">
-            <FontAwesomeIcon icon={faXTwitter} size="3x" />
-          </button>
+      <div className="d-flex justify-content-center flex-wrap">
+        <a href="https://x.com/home" className="btn btn-outline-secondary mx-2 my-2" style={{padding: '10px'}} target="_blank" rel="noopener noreferrer">
+          <FontAwesomeIcon icon={faXTwitter} size="lg" />
         </a>
-        <a href="https://x.com/i/grok" target="_blank" rel="noopener noreferrer">
-          <button type="button" className="btn btn-outline-secondary mx-5 my-2">
-            <FontAwesomeIcon icon={faBrain} size="3x" />
-          </button>
+        <a href="https://x.com/i/grok" className="btn btn-outline-secondary mx-2 my-2" style={{padding: '10px'}} target="_blank" rel="noopener noreferrer">
+          <FontAwesomeIcon icon={faBrain} size="lg" />
         </a>
-        <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
-          <button type="button" className="btn btn-outline-secondary mx-5 my-2">
-            <FontAwesomeIcon icon={faGithub} size="3x" />
-          </button>
+        <a href="https://github.com/" className="btn btn-outline-secondary mx-2 my-2" style={{padding: '10px'}} target="_blank" rel="noopener noreferrer">
+          <FontAwesomeIcon icon={faGithub} size="lg" />
         </a>
-        <a href="https://robinhood.com/" target="_blank" rel="noopener noreferrer">
-          <button type="button" className="btn btn-outline-secondary mx-5 my-2">
-            <FontAwesomeIcon icon={faHandHoldingDollar} size="3x" />
-          </button>
+        <a href="https://robinhood.com/" className="btn btn-outline-secondary mx-2 my-2" style={{padding: '10px'}} target="_blank" rel="noopener noreferrer">
+          <FontAwesomeIcon icon={faHandHoldingDollar} size="lg" />
         </a>
-        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
-          <button type="button" className="btn btn-outline-secondary mx-5 my-2">
-            <FontAwesomeIcon icon={faYoutube} size="3x" />
-          </button>
+        <a href="https://www.youtube.com/" className="btn btn-outline-secondary mx-2 my-2" style={{padding: '10px'}} target="_blank" rel="noopener noreferrer">
+          <FontAwesomeIcon icon={faYoutube} size="lg" />
         </a>
       </div>
 
       {/* Centered content */}
-      <div className="d-flex flex-column justify-content-center align-items-center min-vh-100">
-        <div className="d-flex">
-        <CryptoQuote />
-        <Crypto1Quote />
-        <OTCQuote />
-        <NYSEQuote />
+      <div className="container mt-3 mb-3">
+        <div className="row">
+          <div className="col-12 mb-3">
+            <div className="d-flex flex-column flex-sm-row justify-content-center align-items-center">
+              <CryptoQuote className="mb-3 mb-sm-0" />
+              <Crypto1Quote className="mb-3 mb-sm-0" />
+              <OTCQuote className="mb-3 mb-sm-0" />
+              <NYSEQuote />
+            </div>
+          </div>
         </div>
-        <div>
-        <TodoList />
-        <Dictionary />
+        <div className="row">
+          <div className="col-12 mb-3">
+            <TodoList />
+          </div>
+          <div className="col-12">
+            <Dictionary />
+          </div>
         </div>
       </div>
     </div>
   )
 }
 
-export default App
-
+export default App;

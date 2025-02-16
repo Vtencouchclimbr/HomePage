@@ -1,4 +1,13 @@
 .image {
+  background: url('path-to-your-background-image.jpg') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  overflow: auto;
   background-color: rgb(41, 38, 38);
-  height: 100%;
+
+}
+
+.btn-outline-secondary > svg {
+  width: 36px;
+  height: 36px;
 }
