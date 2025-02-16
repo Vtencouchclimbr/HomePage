@@ -7,7 +7,7 @@ const BASE_URL = 'https://api.coinpaprika.com/v1';
 const CryptoQuote = () => {
   const [cryptoData, setCryptoData] = useState(null);
   const [error, setError] = useState(null);
-  const [symbol, setSymbol] = useState('DOGE');
+  const [symbol, setSymbol] = useState('SHIB');
 
   // Function to fetch crypto quote data from Coinpaprika API
   const fetchCryptoQuote = async (cryptoSymbol) => {
