@@ -46,7 +46,7 @@ const StockQuote = () => {
       {/* Input for stock symbol */}
       <h4 className='text-light'>{symbol} Stock Quote</h4>
       <div className='text-light'>
-        <label className='mt-3'>
+        <label className='mt-1'>
           Stock Symbol:
           <input className='rounded bg-dark text-light text-center' type="text" value={symbol} onChange={handleSymbolChange} />
         </label>
@@ -59,11 +59,11 @@ const StockQuote = () => {
       {stockData && (
         <div>
           <h5 className='text-warning'>Current Price: ${stockData.c}</h5>
-          <p className='text-light'>Change: ${stockData.d} ({stockData.dp}%)</p>
-          <p className='text-light'>High Price: ${stockData.h}</p>
+          <p className='text-light mb-5'>Change: ${stockData.d} ({stockData.dp}%)</p>
+          {/* <p className='text-light'>High Price: ${stockData.h}</p>
           <p className='text-light'>Low Price: ${stockData.l}</p>
           <p className='text-light'>Open Price: ${stockData.o}</p>
-          <p className='text-light'>Previous Close: ${stockData.pc}</p>
+          <p className='text-light'>Previous Close: ${stockData.pc}</p> */}
         </div>
       )}
     </div>

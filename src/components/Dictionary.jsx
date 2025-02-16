@@ -49,7 +49,7 @@ function Api() {
   
   return (
     <div className="container text-center">
-      <h1 className='text-light'>My Personal Dictionary</h1>
+      <h3 className='text-light'>My Personal Dictionary</h3>
       <input 
       className='rounded bg-dark text-light text-center'
       type="text" 

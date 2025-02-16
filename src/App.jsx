@@ -13,7 +13,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './App.css'
 
-import StockQuote from './components/StockQuote';
+import NYSEQuote from './components/NYSEQuote';
 import Dictionary from './components/Dictionary';
 import TodoList from './components/TodoList';
 
@@ -53,7 +53,7 @@ function App() {
       {/* Centered content */}
       <div className="d-flex justify-content-center align-items-center min-vh-100">
         <div>
-        <StockQuote />
+        <NYSEQuote />
         <Dictionary />
         </div>
         <div>
