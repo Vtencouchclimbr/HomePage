@@ -44,9 +44,9 @@ const StockQuote = () => {
   return (
     <div className='stock-quote container text-center mb-3'>
       {/* Input for stock symbol */}
-      <h4 className='text-light'>{symbol} Stock Quote</h4>
+      <h4 style={{ fontSize:'15px' }} className='text-light'>{symbol} Stock Quote</h4>
       <div className='text-light'>
-        <label className='mt-1'>
+        <label style={{ fontSize:'15px' }} className='mt-1'>
           Stock Symbol:
           <input className='rounded bg-dark text-light text-center' type="text" value={symbol} onChange={handleSymbolChange} />
         </label>
@@ -58,8 +58,8 @@ const StockQuote = () => {
       {/* Display stock data */}
       {stockData && (
         <div>
-          <h5 className='text-warning'>Current Price: ${stockData.c}</h5>
-          <p className='text-light mb-5'>Change: ${stockData.d} ({stockData.dp}%)</p>
+          <h5 style={{ fontSize:'15px' }} className='text-warning'>Current Price: ${stockData.c}</h5>
+          <p style={{ fontSize:'15px' }} className='text-light mb-5'>Change: ${stockData.d} ({stockData.dp}%)</p>
           {/* <p className='text-light'>High Price: ${stockData.h}</p>
           <p className='text-light'>Low Price: ${stockData.l}</p>
           <p className='text-light'>Open Price: ${stockData.o}</p>

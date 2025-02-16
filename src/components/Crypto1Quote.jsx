@@ -52,9 +52,9 @@ const CryptoQuote = () => {
   return (
     <div className='stock-quote container text-center mb-3'>
       {/* Input for crypto symbol */}
-      <h4 className='text-light'>{symbol} Crypto Quote</h4>
+      <h4 style={{ fontSize:'15px' }} className='text-light'>{symbol} Crypto Quote</h4>
       <div className='text-light'>
-        <label className='mt-1'>
+        <label style={{ fontSize:'15px' }} className='mt-1'>
           Crypto Symbol:
           <input className='rounded bg-dark text-light text-center' type="text" value={symbol} onChange={handleSymbolChange} />
         </label>
@@ -66,8 +66,8 @@ const CryptoQuote = () => {
       {/* Display crypto data */}
       {cryptoData && (
         <div>
-          <h5 className='text-warning'>Current Price: ${cryptoData.VALUE.toFixed(10)}</h5>
-          <p className='text-light mb-5'>
+          <h5 style={{ fontSize:'15px' }} className='text-warning'>Current Price: ${cryptoData.VALUE.toFixed(10)}</h5>
+          <p style={{ fontSize:'15px' }} className='text-light mb-5'>
             Change: ${cryptoData.CURRENT_DAY_CHANGE.toFixed(6)} ({cryptoData.CURRENT_DAY_CHANGE_PERCENTAGE.toFixed(2)}%)
           </p>
         </div>
