@@ -15,6 +15,7 @@ import './App.css'
 
 import NYSEQuote from './components/NYSEQuote';
 import OTCQuote from './components/OTCQuote';
+import CryptoQuote from './components/CryptoQuote';
 import Dictionary from './components/Dictionary';
 import TodoList from './components/TodoList';
 
@@ -54,6 +55,7 @@ function App() {
       {/* Centered content */}
       <div className="d-flex justify-content-center align-items-center min-vh-100">
         <div>
+        <CryptoQuote />
         <OTCQuote />
         <NYSEQuote />
         <Dictionary />
