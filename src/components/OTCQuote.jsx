@@ -1,39 +1,31 @@
 import { useState, useEffect } from 'react';
 
 // Use the API key from the .env file
-const API_KEY = import.meta.env.VITE_OTC_API_KEY;
-const BASE_URL = 'https://www.alphavantage.co/query';
+const API_KEY = import.meta.env.VITE_FINNHUB_API_KEY;
+const FINNHUB_BASE_URL = 'https://finnhub.io/api/v1';
 
 // Component to fetch and display stock quote data
-const OTCQuote = () => {
+const StockQuote = () => {
   // State to store stock data and error
   const [stockData, setStockData] = useState(null);
   const [error, setError] = useState(null);
-  const [symbol, setSymbol] = useState('ARSMF');
+  const [symbol, setSymbol] = useState('ARSMF'); // Default stock symbol (Ares Strategic Mining Inc)
 
-  // Function to fetch stock quote data from Alpha Vantage API
+  // Function to fetch stock quote data from Finnhub API
   const fetchStockQuote = async (stockSymbol) => {
     try {
       const response = await fetch(
-        `${BASE_URL}?function=GLOBAL_QUOTE&symbol=${stockSymbol}&apikey=${API_KEY}`
+        `${FINNHUB_BASE_URL}/quote?symbol=${stockSymbol}&token=${API_KEY}`
       );
-  
+
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-  
+
       const data = await response.json();
-      console.log('API Response:', data); // Log the full response to check if data is received correctly
-      
-      if (data['Global Quote']) {
-        setStockData(data['Global Quote']);
-        setError(null);
-      } else {
-        setError('Data format not as expected or no data returned.');
-        setStockData(null);
-      }
+      setStockData(data);
+      setError(null);
     } catch (err) {
-      console.error('Fetch error:', err); // Log the error for debugging
       setError('Error fetching stock data: ' + err.message);
       setStockData(null);
     }
@@ -66,19 +58,16 @@ const OTCQuote = () => {
       {/* Display stock data */}
       {stockData && (
         <div>
-          <h5 className='text-warning'>Current Price: ${stockData['05. price']}</h5>
-          <p className='text-light mb-5'>
-            Change: ${stockData['09. change']} ({stockData['10. change percent']})
-          </p>
-          {/* Uncomment these if you want to display additional data 
-          <p className='text-light'>High Price: ${stockData['03. high']}</p>
-          <p className='text-light'>Low Price: ${stockData['04. low']}</p>
-          <p className='text-light'>Open Price: ${stockData['02. open']}</p>
-          <p className='text-light'>Previous Close: ${stockData['08. previous close']}</p> */}
+          <h5 className='text-warning'>Current Price: ${stockData.c}</h5>
+          <p className='text-light mb-5'>Change: ${stockData.d} ({stockData.dp}%)</p>
+          {/* <p className='text-light'>High Price: ${stockData.h}</p>
+          <p className='text-light'>Low Price: ${stockData.l}</p>
+          <p className='text-light'>Open Price: ${stockData.o}</p>
+          <p className='text-light'>Previous Close: ${stockData.pc}</p> */}
         </div>
       )}
     </div>
   );
 };
 
-export default OTCQuote;
+export default StockQuote;

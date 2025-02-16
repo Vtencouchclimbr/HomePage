@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 
-// Use Coinpaprika's API base URL
-const BASE_URL = 'https://api.coinpaprika.com/v1';
+// Use CryptoCompare's API base URL for this specific endpoint
+const BASE_URL = 'https://data-api.cryptocompare.com/index/cc/v1/latest/tick';
+const API_KEY = import.meta.env.VITE_CRYPTO_API_KEY;
 
 // Component to fetch and display crypto quote data
 const CryptoQuote = () => {
@@ -9,13 +10,11 @@ const CryptoQuote = () => {
   const [error, setError] = useState(null);
   const [symbol, setSymbol] = useState('SHIB');
 
-  // Function to fetch crypto quote data from Coinpaprika API
+  // Function to fetch crypto quote data from CryptoCompare API
   const fetchCryptoQuote = async (cryptoSymbol) => {
     try {
-      // Coinpaprika uses lowercase for symbols and has specific IDs
-      const coinId = cryptoSymbol.toLowerCase() === 'doge' ? 'doge-dogecoin' : cryptoSymbol.toLowerCase();
       const response = await fetch(
-        `${BASE_URL}/tickers/${coinId}`
+        `${BASE_URL}?market=ccix&instruments=${cryptoSymbol}-USD&api_key=${API_KEY}`
       );
 
       if (!response.ok) {
@@ -25,8 +24,9 @@ const CryptoQuote = () => {
       const data = await response.json();
       console.log('API Response:', data); // Log the full response to check if data is received correctly
 
-      if (data && data.quotes) {
-        setCryptoData(data);
+      // CryptoCompare's response structure
+      if (data && data.Data && data.Data[`${cryptoSymbol}-USD`]) {
+        setCryptoData(data.Data[`${cryptoSymbol}-USD`]);
         setError(null);
       } else {
         setError('Data format not as expected or no data returned.');
@@ -66,13 +66,10 @@ const CryptoQuote = () => {
       {/* Display crypto data */}
       {cryptoData && (
         <div>
-          <h5 className='text-warning'>Current Price: ${cryptoData.quotes.USD.price.toFixed(2)}</h5>
+          <h5 className='text-warning'>Current Price: ${cryptoData.VALUE.toFixed(10)}</h5>
           <p className='text-light mb-5'>
-            Change: ${cryptoData.quotes.USD.percent_change_24h.toFixed(2)}%
+            Change: ${cryptoData.CURRENT_DAY_CHANGE.toFixed(6)} ({cryptoData.CURRENT_DAY_CHANGE_PERCENTAGE.toFixed(2)}%)
           </p>
-          {/* Uncomment these if you want to display additional data 
-          <p className='text-light'>Market Cap: ${cryptoData.quotes.USD.market_cap.toFixed(2)}</p>
-          <p className='text-light'>Volume 24h: ${cryptoData.quotes.USD.volume_24h.toFixed(2)}</p> */}
         </div>
       )}
     </div>
